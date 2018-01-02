@@ -17,36 +17,32 @@
 
 package de.schildbach.wallet;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-
-import org.bitcoinj.core.Context;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.params.MainNetParams;
-import org.bitcoinj.params.TestNet3Params;
-import org.bitcoinj.utils.MonetaryFormat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import android.os.Build;
+import android.os.Environment;
+import android.text.format.DateUtils;
 
 import com.google.common.io.BaseEncoding;
 import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
-import de.schildbach.wallet_test.R;
+import org.bitcoinj.core.Context;
+import org.bitcoinj.core.NetworkParameters;
+import org.bitcoinj.utils.MonetaryFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import android.os.Build;
-import android.os.Environment;
-import android.text.format.DateUtils;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Andreas Schildbach
  */
 public final class Constants {
-    public static final boolean TEST = R.class.getPackage().getName().contains("_test");
+    public static final boolean TEST = false;
 
     /** Network this wallet is on (e.g. testnet or mainnet). */
-    public static final NetworkParameters NETWORK_PARAMETERS = TEST ? TestNet3Params.get() : MainNetParams.get();
+    public static final NetworkParameters NETWORK_PARAMETERS = TalerCoinMain.get();
 
     /** Bitcoinj global context. */
     public static final Context CONTEXT = new Context(NETWORK_PARAMETERS);
@@ -61,8 +57,7 @@ public final class Constants {
     public static final boolean ENABLE_BROWSE = true;
 
     public final static class Files {
-        private static final String FILENAME_NETWORK_SUFFIX = NETWORK_PARAMETERS.getId()
-                .equals(NetworkParameters.ID_MAINNET) ? "" : "-testnet";
+        private static final String FILENAME_NETWORK_SUFFIX = "";
 
         /** Filename of the wallet. */
         public static final String WALLET_FILENAME_PROTOBUF = "wallet-protobuf" + FILENAME_NETWORK_SUFFIX;
@@ -90,8 +85,7 @@ public final class Constants {
         public static final String EXTERNAL_WALLET_BACKUP = "bitcoin-wallet-backup" + FILENAME_NETWORK_SUFFIX;
 
         /** Suffix for the subject of the manual wallet backup. */
-        public static final String EXTERNAL_WALLET_BACKUP_SUBJECT_SUFFIX = NETWORK_PARAMETERS.getId()
-                .equals(NetworkParameters.ID_MAINNET) ? "" : " [testnet3]";
+        public static final String EXTERNAL_WALLET_BACKUP_SUBJECT_SUFFIX = "";
 
         /** Filename of the block store for storing the chain. */
         public static final String BLOCKCHAIN_FILENAME = "blockchain" + FILENAME_NETWORK_SUFFIX;
@@ -110,8 +104,7 @@ public final class Constants {
     public static final long BACKUP_MAX_CHARS = 10000000;
 
     /** Currency code for the wallet name resolver. */
-    public static final String WALLET_NAME_CURRENCY_CODE = NETWORK_PARAMETERS.getId()
-            .equals(NetworkParameters.ID_MAINNET) ? "btc" : "tbtc";
+    public static final String WALLET_NAME_CURRENCY_CODE = "tlr";
 
     /** URL to fetch version alerts from. */
     public static final HttpUrl VERSION_URL = HttpUrl.parse("https://wallet.schildbach.de/version");
@@ -196,9 +189,9 @@ public final class Constants {
 
     /** Default ports for Electrum servers */
     public static final int ELECTRUM_SERVER_DEFAULT_PORT_TCP = NETWORK_PARAMETERS.getId()
-            .equals(NetworkParameters.ID_MAINNET) ? 50001 : 51001;
+            .equals(NetworkParameters.ID_MAINNET) ? 80 : 80;
     public static final int ELECTRUM_SERVER_DEFAULT_PORT_TLS = NETWORK_PARAMETERS.getId()
-            .equals(NetworkParameters.ID_MAINNET) ? 50002 : 51002;
+            .equals(NetworkParameters.ID_MAINNET) ? 80 : 80;
 
     /** Shared HTTP client, can reuse connections */
     public static final OkHttpClient HTTP_CLIENT = new OkHttpClient();

@@ -17,16 +17,14 @@
 
 package de.schildbach.wallet.data;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import java.util.Arrays;
-
-import javax.annotation.Nullable;
+import com.google.common.io.BaseEncoding;
 
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.AddressFormatException;
 import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.ScriptException;
 import org.bitcoinj.core.Transaction;
 import org.bitcoinj.core.WrongNetworkException;
 import org.bitcoinj.protocols.payments.PaymentProtocol;
@@ -38,14 +36,15 @@ import org.bitcoinj.wallet.SendRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.io.BaseEncoding;
+import java.util.Arrays;
+
+import javax.annotation.Nullable;
 
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.util.Bluetooth;
 import de.schildbach.wallet.util.GenericUtils;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * @author Andreas Schildbach
@@ -69,7 +68,7 @@ public final class PaymentIntent implements Parcelable {
             try {
                 final Script script = new Script(output.scriptData);
                 return new PaymentIntent.Output(output.amount, script);
-            } catch (final ScriptException x) {
+            } catch (final Exception x) {
                 throw new PaymentProtocolException.InvalidOutputs(
                         "unparseable script in output: " + Constants.HEX.encode(output.scriptData));
             }
