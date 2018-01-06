@@ -46,7 +46,7 @@ public class NioClient implements MessageWriteTarget {
         Handler(StreamConnection upstreamConnection, int connectTimeoutMillis) {
             this.upstreamConnection = upstreamConnection;
             setSocketTimeout(connectTimeoutMillis);
-            setTimeoutEnabled(true);
+            setTimeoutEnabled(false);
         }
 
         @Override

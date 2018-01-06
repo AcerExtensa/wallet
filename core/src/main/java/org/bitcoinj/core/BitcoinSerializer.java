@@ -177,7 +177,7 @@ public class BitcoinSerializer extends MessageSerializer {
                     " vs " + HEX.encode(header.checksum));
         }
 
-        if (log.isDebugEnabled()) {
+        if (true) {
             log.debug("Received {} byte '{}' message: {}", header.size, header.command,
                     HEX.encode(payloadBytes));
         }
@@ -185,7 +185,9 @@ public class BitcoinSerializer extends MessageSerializer {
         try {
             return makeMessage(header.command, header.size, payloadBytes, hash, header.checksum);
         } catch (Exception e) {
-            throw new ProtocolException("Error deserializing message " + HEX.encode(payloadBytes) + "\n", e);
+            log.error("Error deserializing message " + HEX.encode(payloadBytes) + "\n");
+            return null;
+            //throw new ProtocolException("Error deserializing message " + HEX.encode(payloadBytes) + "\n", e);
         }
     }
 

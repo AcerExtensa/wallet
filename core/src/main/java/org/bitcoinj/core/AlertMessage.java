@@ -52,7 +52,7 @@ public class AlertMessage extends Message {
     private String comment, statusBar, reserved;
 
     // Chosen arbitrarily to avoid memory blowups.
-    private static final long MAX_SET_SIZE = 100;
+    private static final long MAX_SET_SIZE = 148;
 
     public AlertMessage(NetworkParameters params, byte[] payloadBytes) throws ProtocolException {
         super(params, payloadBytes, 0);
