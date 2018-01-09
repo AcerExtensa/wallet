@@ -483,6 +483,19 @@ public class WalletProtobufSerializer {
         }
     }
 
+    public Wallet readWallet(InputStream input, NetworkParameters params, boolean forceReset, @Nullable WalletExtension[] extensions) throws UnreadableWalletException {
+        try {
+            Protos.Wallet walletProto = parseToProto(input);
+            return readWallet(params, extensions, walletProto, forceReset);
+        } catch (IOException e) {
+            throw new UnreadableWalletException("Could not parse input stream to protobuf", e);
+        } catch (IllegalStateException e) {
+            throw new UnreadableWalletException("Could not parse input stream to protobuf", e);
+        } catch (IllegalArgumentException e) {
+            throw new UnreadableWalletException("Could not parse input stream to protobuf", e);
+        }
+    }
+
     /**
      * <p>Loads wallet data from the given protocol buffer and inserts it into the given Wallet object. This is primarily
      * useful when you wish to pre-register extension objects. Note that if loading fails the provided Wallet object
