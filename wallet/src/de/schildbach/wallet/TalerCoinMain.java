@@ -62,8 +62,8 @@ public class TalerCoinMain extends MainNetParams {
         checkState(genesisHash.equals("c079fd1ae86223e1522928776899d46e329da7919ca1e11be23643c67dd05d5f"),
                 genesisHash);
 
-        subsidyDecreaseBlockCount = 210000; //TODO: I dont know what is it
-        spendableCoinbaseDepth = 100;//TODO: I dont know what is it
+        subsidyDecreaseBlockCount = 210000;
+        spendableCoinbaseDepth = 20;
 
         checkpoints = new HashMap<>();
 
