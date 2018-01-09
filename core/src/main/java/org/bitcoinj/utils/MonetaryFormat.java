@@ -64,15 +64,15 @@ public final class MonetaryFormat {
     /**
      * Currency code for base 1 Bitcoin.
      */
-    public static final String CODE_BTC = "BTC";
+    public static final String CODE_BTC = "TLR";
     /**
      * Currency code for base 1/1000 Bitcoin.
      */
-    public static final String CODE_MBTC = "mBTC";
+    public static final String CODE_MBTC = "mTLR";
     /**
      * Currency code for base 1/1000000 Bitcoin.
      */
-    public static final String CODE_UBTC = "µBTC";
+    public static final String CODE_UBTC = "µTLR";
 
     public static final int MAX_DECIMALS = 8;
 

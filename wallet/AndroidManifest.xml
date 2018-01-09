@@ -185,15 +185,15 @@
 
         <provider
             android:name="de.schildbach.wallet.data.AddressBookProvider"
-            android:authorities="de.schildbach.wallet_test.address_book"
+            android:authorities="site.taler.wallet.address_book"
             android:exported="false" />
         <provider
             android:name="de.schildbach.wallet.data.ExchangeRatesProvider"
-            android:authorities="de.schildbach.wallet_test.exchange_rates"
+            android:authorities="site.taler.wallet.exchange_rates"
             android:exported="false" />
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="de.schildbach.wallet_test.file_attachment"
+            android:authorities="site.staler.wallet.file_attachment"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data

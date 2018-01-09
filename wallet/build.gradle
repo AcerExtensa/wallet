@@ -51,6 +51,7 @@ android {
     }
 
     defaultConfig {
+        applicationId "site.taler.wallet"
         generatedDensities = ['hdpi', 'xhdpi']
     }
 
