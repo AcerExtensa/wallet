@@ -5,7 +5,7 @@
         android:key="about_version"
         android:title="@string/about_version_title" />
     <Preference
-        android:summary="© 2011-2017, the Bitcoin Wallet developers"
+        android:summary="© 2018, Taler Wallet developers"
         android:title="@string/about_copyright_title" />
     <Preference
         android:key="about_license"
@@ -33,7 +33,7 @@
         android:title="@string/about_faq_title" >
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://bitcoin.stackexchange.com/questions/tagged/bitcoin-wallet-app" />
+            android:data="https://bitcoin.stackexchange.com/questions/tagged/taler-wallet-app" />
     </Preference>
     <Preference
         android:key="about_community_googleplus"
@@ -41,15 +41,15 @@
         android:title="@string/about_community_googleplus_title" >
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://plus.google.com/communities/105515929887248493912" />
+            android:data="https://t.me/TalerOfChat" />
     </Preference>
     <Preference
         android:key="about_twitter"
-        android:summary="\@bitcoin_wallet"
+        android:summary="\@talerminsk"
         android:title="Twitter" >
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://twitter.com/bitcoin_wallet" />
+            android:data="https://twitter.com/talerminsk" />
     </Preference>
 
     <PreferenceCategory android:title="@string/about_category_credits" >
@@ -76,6 +76,15 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/wg/scrypt" />
         </Preference>
+        <Preference
+            android:key="about_credits_schildbach"
+            android:summary="https://github.com/bitcoin-wallet/bitcoin-wallet"
+            android:title="@string/about_credits_schildbach_title" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/bitcoin-wallet/bitcoin-wallet" />
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
