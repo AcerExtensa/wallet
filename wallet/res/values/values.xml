@@ -22,14 +22,10 @@
         <item>@string/preferences_precision_labels_0_6</item>
     </string-array>
     <string-array name="preferences_block_explorer_values">
-        <item>https://testnet.blockexplorer.com/</item>
-        <item>https://testnet.blockchain.info</item>
-        <item>https://www.blocktrail.com/tBTC/</item>
+        <item>http://taler-explorer.online</item>
     </string-array>
     <string-array name="preferences_block_explorer_labels">
-        <item>blockexplorer.com</item>
-        <item>blockchain.info</item>
-        <item>blocktrail.com</item>
+        <item>taler-explorer.online</item>
     </string-array>
 
 </resources>
