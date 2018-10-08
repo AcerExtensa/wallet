@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="de.schildbach.wallet_test"
+    package="xplatforms.taler.wallet"
     android:installLocation="internalOnly"
-    android:versionCode="322"
-    android:versionName="5.42" >
+    android:versionCode="807"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -58,12 +58,12 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name="de.schildbach.wallet.WalletApplication"
+        android:name="xplatforms.taler.wallet.WalletApplication"
         android:allowBackup="false"
         android:icon="@drawable/ic_app_color"
         android:label="@string/app_name" >
         <activity
-            android:name="de.schildbach.wallet.ui.WalletActivity"
+            android:name="xplatforms.taler.wallet.ui.WalletActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:exported="true"
             android:label="@string/app_name_short"
@@ -71,8 +71,8 @@
             android:theme="@style/My.Theme" />
 
         <activity-alias
-            android:name="de.schildbach.wallet.WalletActivity"
-            android:targetActivity="de.schildbach.wallet.ui.WalletActivity" >
+            android:name="xplatforms.taler.wallet.WalletActivity"
+            android:targetActivity="xplatforms.taler.wallet.ui.WalletActivity" >
             <intent-filter android:label="@string/app_name_short" >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,7 +92,7 @@
         </activity-alias>
 
         <activity
-            android:name="de.schildbach.wallet.ui.send.SendCoinsActivity"
+            android:name="xplatforms.taler.wallet.ui.send.SendCoinsActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/send_coins_activity_title"
             android:theme="@style/My.Theme.ChildActivity"
@@ -112,6 +112,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <intent-filter android:label="@string/send_coins_activity_title" >
                 <action android:name="android.intent.action.VIEW" />
 
@@ -128,37 +129,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="de.schildbach.wallet.ui.SendCoinsQrActivity"
+            android:name="xplatforms.taler.wallet.ui.SendCoinsQrActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
-            android:name="de.schildbach.wallet.ui.RequestCoinsActivity"
+            android:name="xplatforms.taler.wallet.ui.RequestCoinsActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/request_coins_activity_title"
             android:theme="@style/My.Theme.ChildActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="de.schildbach.wallet.ui.AddressBookActivity"
+            android:name="xplatforms.taler.wallet.ui.AddressBookActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/address_book_activity_title"
             android:theme="@style/My.Theme.ChildActivity" />
         <activity
-            android:name="de.schildbach.wallet.ui.ExchangeRatesActivity"
+            android:name="xplatforms.taler.wallet.ui.ExchangeRatesActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/exchange_rates_activity_title"
             android:theme="@style/My.Theme.ChildActivity" />
         <activity
-            android:name="de.schildbach.wallet.ui.NetworkMonitorActivity"
+            android:name="xplatforms.taler.wallet.ui.NetworkMonitorActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/network_monitor_activity_title"
             android:theme="@style/My.Theme.ChildActivity" />
         <activity
-            android:name="de.schildbach.wallet.ui.preference.PreferenceActivity"
+            android:name="xplatforms.taler.wallet.ui.preference.PreferenceActivity"
             android:label="@string/preferences_activity_title"
             android:theme="@style/My.Theme.ChildActivity" />
         <activity
-            android:name="de.schildbach.wallet.ui.RestoreWalletActivity"
+            android:name="xplatforms.taler.wallet.ui.RestoreWalletActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:theme="@style/My.Theme.Dialog" >
             <intent-filter android:label="@string/import_keys_intent_filter_action" >
@@ -170,30 +171,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="de.schildbach.wallet.ui.ScanActivity"
+            android:name="xplatforms.taler.wallet.ui.ScanActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
             android:screenOrientation="landscape"
             android:stateNotNeeded="true"
             android:theme="@style/My.Theme.Fullscreen"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="de.schildbach.wallet.ui.send.SweepWalletActivity"
+            android:name="xplatforms.taler.wallet.ui.send.SweepWalletActivity"
             android:configChanges="keyboard|keyboardHidden"
             android:label="@string/sweep_wallet_activity_title"
             android:theme="@style/My.Theme.ChildActivity"
             android:windowSoftInputMode="adjustResize" />
 
         <provider
-            android:name="de.schildbach.wallet.data.AddressBookProvider"
-            android:authorities="site.taler.wallet.address_book"
+            android:name="xplatforms.taler.wallet.data.AddressBookProvider"
+            android:authorities="xplatforms.taler.wallet.address_book"
             android:exported="false" />
         <provider
-            android:name="de.schildbach.wallet.data.ExchangeRatesProvider"
-            android:authorities="site.taler.wallet.exchange_rates"
+            android:name="xplatforms.taler.wallet.data.ExchangeRatesProvider"
+            android:authorities="xplatforms.taler.wallet.exchange_rates"
             android:exported="false" />
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="site.staler.wallet.file_attachment"
+            android:authorities="xplatforms.taler.wallet.file_attachment"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -201,8 +202,11 @@
                 android:resource="@xml/file_provider" />
         </provider>
 
+
+
+
         <receiver
-            android:name="de.schildbach.wallet.WalletBalanceWidgetProvider"
+            android:name="xplatforms.taler.wallet.WalletBalanceWidgetProvider"
             android:label="@string/appwidget_wallet_balance_title" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -213,14 +217,17 @@
                 android:resource="@xml/wallet_balance_widget" />
         </receiver>
 
+
+
+
         <service
-            android:name="de.schildbach.wallet.service.BlockchainServiceImpl"
+            android:name="xplatforms.taler.wallet.service.BlockchainServiceImpl"
             android:exported="false" />
         <service
-            android:name="de.schildbach.wallet.offline.AcceptBluetoothService"
+            android:name="xplatforms.taler.wallet.offline.AcceptBluetoothService"
             android:exported="false" />
 
-        <receiver android:name="de.schildbach.wallet.service.BootstrapReceiver" >
+        <receiver android:name="xplatforms.taler.wallet.service.BootstrapReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -230,10 +237,10 @@
         </receiver>
 
         <service
-            android:name="de.schildbach.wallet.service.UpgradeWalletService"
+            android:name="xplatforms.taler.wallet.service.UpgradeWalletService"
             android:exported="false" />
         <service
-            android:name="de.schildbach.wallet.service.InactivityNotificationService"
+            android:name="xplatforms.taler.wallet.service.InactivityNotificationService"
             android:exported="false" />
 
         <meta-data
