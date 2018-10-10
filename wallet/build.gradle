@@ -42,19 +42,18 @@ ext {
 }
 
 android {
-    compileSdkVersion 'android-26'
+    compileSdkVersion 26
     buildToolsVersion '26.0.3'
-
     lintOptions {
         abortOnError false
         disable 'MissingTranslation'
     }
-
     defaultConfig {
-        applicationId "site.taler.wallet"
+        applicationId 'xplatforms.taler.wallet'
         generatedDensities = ['hdpi', 'xhdpi']
+        minSdkVersion 15
+        targetSdkVersion 26
     }
-
     buildTypes {
         all {
             minifyEnabled true
@@ -64,7 +63,6 @@ android {
             debuggable true
         }
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -78,7 +76,6 @@ android {
             resources.srcDirs = ['test']
         }
     }
-
     packagingOptions {
         exclude 'lib/x86_64/darwin/libscrypt.dylib'
         exclude 'lib/x86_64/freebsd/libscrypt.so'
@@ -89,6 +86,8 @@ android {
         exclude 'org/bitcoinj/crypto/cacerts'
         exclude 'org.bitcoin.production.checkpoints.txt'
         exclude 'org.bitcoin.test.checkpoints.txt'
+    }
+    productFlavors {
     }
 }
 
