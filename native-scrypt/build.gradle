@@ -1,8 +1,9 @@
-apply plugin: 'com.android.model.native'
+
+
 
 model {
     android {
-        compileSdkVersion 15
+        compileSdkVersion 26
 
         ndk {
             moduleName 'scrypt'
@@ -23,7 +24,7 @@ model {
 }
 
 task(copy, type: Copy) {
-    dependsOn assemble // trigger build
+    //dependsOn assemble // trigger build
     from 'build/outputs/native/release/lib'
     into '../wallet/libs/'
 }

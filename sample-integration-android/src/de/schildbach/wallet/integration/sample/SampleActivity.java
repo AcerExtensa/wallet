@@ -16,12 +16,6 @@
 
 package de.schildbach.wallet.integration.sample;
 
-import org.bitcoin.protocols.payments.Protos;
-import org.bitcoinj.core.Address;
-import org.bitcoinj.core.AddressFormatException;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.script.ScriptBuilder;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,17 +31,23 @@ import android.widget.Toast;
 
 import com.google.protobuf.ByteString;
 
-import de.schildbach.wallet.integration.android.BitcoinIntegration;
+import org.bitcoin.protocols.payments.Protos;
+import org.bitcoinj.core.Address;
+import org.bitcoinj.core.AddressFormatException;
+import org.bitcoinj.core.NetworkParameters;
+import org.bitcoinj.script.ScriptBuilder;
+
+import xplatforms.taler.wallet.integration.android.BitcoinIntegration;
 
 /**
  * @author Andreas Schildbach
  */
 public class SampleActivity extends Activity {
     private static final long AMOUNT = 500000;
-    private static final String[] DONATION_ADDRESSES_MAINNET = { "18CK5k1gajRKKSC7yVSTXT9LUzbheh1XY4",
-            "1PZmMahjbfsTy6DsaRyfStzoWTPppWwDnZ" };
-    private static final String[] DONATION_ADDRESSES_TESTNET = { "mkCLjaXncyw8eSWJBcBtnTgviU85z5PfwS",
-            "mwEacn7pYszzxfgcNaVUzYvzL6ypRJzB6A" };
+    private static final String[] DONATION_ADDRESSES_MAINNET = { "TEU5bnWLXNzUmLtSs9AWsWjCqPYvRk6M44",
+            "TYEBBkcB1JciYeSyCxSXvxynb8Wfseqkez" };
+    private static final String[] DONATION_ADDRESSES_TESTNET = { "TEU5bnWLXNzUmLtSs9AWsWjCqPYvRk6M44",
+            "TEU5bnWLXNzUmLtSs9AWsWjCqPYvRk6M44" };
     private static final String MEMO = "Sample donation";
     private static final int REQUEST_CODE = 0;
 
