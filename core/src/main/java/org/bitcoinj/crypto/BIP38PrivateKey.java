@@ -76,7 +76,9 @@ public class BIP38PrivateKey extends VersionedChecksummedBytes {
         super(encoded);
         this.params = checkNotNull(params);
         if (version != 0x01)
-            throw new AddressFormatException("Mismatched version number: " + version);
+        {
+            throw new AddressFormatException("EXDBG Mismatched version number: " + version);
+        }
         if (bytes.length != 38)
             throw new AddressFormatException("Wrong number of bytes, excluding version byte: " + bytes.length);
         hasLotAndSequence = (bytes[1] & 0x04) != 0; // bit 2
